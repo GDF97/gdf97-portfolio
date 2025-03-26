@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "name": "SignAux",
+    "s_description": "TCC - Uma aplicação que transcreve a Libras para texto em tempo real.",
+    "stack": [
+      "React",
+      "JavaScript",
+      "TailwindCSS",
+      "NodeJS",
+      "Express",
+      "MySQL",
+      "Python",
+      "MediaPipe",
+      "TensorFlow"
+    ],
+    "img": "https://raw.githubusercontent.com/GDF97/good-movie-97/refs/heads/main/public/image.png"
+  },
+  {
+    "id": 2,
+    "name": "VintageFilmVault",
+    "s_description": "Uma locadora de filmes antigos",
+    "stack": [
+      "React",
+      "TypeScript",
+      "SCSS",
+      "Axios",
+      "StyledComponents",
+      "PHP",
+      "MySQL"
+    ],
+    "img": "https://raw.githubusercontent.com/GDF97/good-movie-97/refs/heads/main/public/image.png"
+  },
+  {
+    "id": 3,
+    "name": "GoodMovies97",
+    "s_description": "Site no qual é possível realizar uma busca de informações de um determinado filme",
+    "stack": ["React", "TypeScript", "SCSS"],
+    "img": "https://raw.githubusercontent.com/GDF97/good-movie-97/refs/heads/main/public/image.png"
+  },
+  {
+    "id": 4,
+    "name": "Rest API Countries",
+    "s_description": "Site que utiliza uma API que mostra os países do mundo",
+    "stack": ["React", "TypeScript", "SCSS"],
+    "img": "https://raw.githubusercontent.com/GDF97/good-movie-97/refs/heads/main/public/image.png"
+  }
+]
