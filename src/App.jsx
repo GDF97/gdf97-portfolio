@@ -7,6 +7,7 @@ import Loader from "./components/Loader";
 import restapicountries from "./assets/restapicountries.png";
 import vfv from "./assets/vfv.png";
 import signaux from "./assets/signaux.png";
+import frontendmentor from "./assets/frontendmentor.png";
 
 function App() {
   const [projects, setProject] = useState([
@@ -27,6 +28,7 @@ function App() {
         "TensorFlow",
       ],
       img: signaux,
+      url: "https://github.com/signaux-devs",
     },
     {
       id: 2,
@@ -42,6 +44,7 @@ function App() {
         "MySQL",
       ],
       img: vfv,
+      url: "https://github.com/GDF97/VintageFilmVault-frontend",
     },
     {
       id: 3,
@@ -50,6 +53,7 @@ function App() {
         "Site no qual é possível realizar uma busca de informações de um determinado filme",
       stack: ["React", "TypeScript", "SCSS"],
       img: "https://raw.githubusercontent.com/GDF97/good-movie-97/refs/heads/main/public/image.png",
+      url: "https://github.com/GDF97/good-movie-97",
     },
     {
       id: 4,
@@ -57,6 +61,15 @@ function App() {
       s_description: "Site que utiliza uma API que mostra os países do mundo",
       stack: ["React", "TypeScript", "SCSS"],
       img: restapicountries,
+      url: "https://rest-api-countries-iota.vercel.app/",
+    },
+    {
+      id: 5,
+      name: "FrontEndMentor projects",
+      s_description: "Site que mostra todos os meus projetos do FrontEndMentor",
+      stack: ["React", "CSS"],
+      img: frontendmentor,
+      url: "https://front-end-mentor-display-projects.vercel.app/",
     },
   ]);
 
@@ -101,7 +114,7 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full h-fit relative">
+    <div className={`w-full relative `}>
       {loader && <Loader />}
       <Header />
 
@@ -137,9 +150,9 @@ function App() {
                 Baixar CV
               </button>
             </div>
-            <Link to={"/about"} className="w-full lg:w-fit">
+            {/* <Link to={"/about"} className="w-full lg:w-fit">
               Ver mais sobre mim
-            </Link>
+            </Link> */}
           </div>
         </section>
         <section className="w-full flex flex-col gap-4" id="projects">

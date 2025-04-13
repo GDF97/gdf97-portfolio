@@ -9,8 +9,7 @@ function Loader() {
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
       transition={{ duration: 8 }}
-      onAnimationComplete={() => setIsVisible(false)} // Remove da tela ao terminar
-      className="w-full min-h-screen flex items-center justify-center gap-4 h-full absolute inset-0 z-30 bg-black"
+      className="w-full h-screen flex items-center justify-center gap-4 absolute inset-0 z-30 bg-black"
     >
       {[0, 0.2, 0.4].map((delay, index) => (
         <motion.div

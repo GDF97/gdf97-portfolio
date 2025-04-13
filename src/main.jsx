@@ -12,14 +12,6 @@ const route = createBrowserRouter([
     path: "/",
     element: <App />,
   },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "/project/:id",
-    element: <Project />,
-  },
 ]);
 
 createRoot(document.getElementById("root")).render(
