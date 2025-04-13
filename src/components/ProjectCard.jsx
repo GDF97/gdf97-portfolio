@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 function ProjectCard({ id, name, s_description, stack, img }) {
@@ -7,7 +8,11 @@ function ProjectCard({ id, name, s_description, stack, img }) {
       className="w-full p-2 h-[400px] overflow-hidden bg-[rgba(255,255,255,0.05)] rounded-3xl 
                  md:p-4 md:w-[700px] md:h-[600px] lg:p-4 lg:w-[1200px] lg:h-[800px]"
     >
-      <div
+      <motion.div
+        initial={{ translateY: "-15px", opacity: 0 }}
+        whileInView={{ translateY: 0, opacity: 1 }}
+        transition={{ duration: 5 }}
+        viewport={{ once: true }}
         className="w-full h-full p-4 rounded-2xl border border-[#ffffff6e] relative 
         bg-gradient-to-b from-[rgba(255,255,255,0.05)] to-[#101010] hover:border-white duration-500 ease-in-out overflow-hidden"
         id="projectid"
@@ -35,7 +40,7 @@ function ProjectCard({ id, name, s_description, stack, img }) {
                      md:w-[600px] lg:w-[1000px] md:max-h-[365px] lg:max-h-[565px]  rounded-2xl object-cover object-top duration-500"
           id="projectimg"
         />
-      </div>
+      </motion.div>
     </Link>
   );
 }

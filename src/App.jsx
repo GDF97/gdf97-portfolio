@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "./components/Header";
 import ProjectCard from "./components/ProjectCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SkillCard from "./components/SkillCard";
 import Loader from "./components/Loader";
 import restapicountries from "./assets/restapicountries.png";
@@ -92,9 +92,17 @@ function App() {
     "Figma",
   ]);
 
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 8000);
+  }, []);
+
   return (
     <div className="w-full h-fit relative">
-      <Loader />
+      {loader && <Loader />}
       <Header />
 
       <main className="w-full min-h-screen pt-4 px-4 lg:px-12 pb-24 flex flex-col gap-12 font-ibm relative 2xl:px-24 md:pb-48 ">
@@ -143,7 +151,7 @@ function App() {
           </div>
           <div className="w-full flex flex-col items-center justify-center gap-8 text-white">
             {projects.map((project, index) => (
-              <ProjectCard {...project} />
+              <ProjectCard {...project} key={index} />
             ))}
           </div>
         </section>
