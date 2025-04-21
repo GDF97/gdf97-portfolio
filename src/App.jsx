@@ -146,9 +146,13 @@ function App() {
                 apaixonado pelo mundo da programação e sempre busco aprender
                 novas tecnologias.{" "}
               </p>
-              <button className="text-black rounded-lg px-2 lg:px-8 py-2 bg-white">
+              <a
+                href="./src/assets/cv_pedro_silva.docx"
+                target="_blank"
+                className="text-black rounded-lg px-2 lg:px-8 py-2 bg-white"
+              >
                 Baixar CV
-              </button>
+              </a>
             </div>
             {/* <Link to={"/about"} className="w-full lg:w-fit">
               Ver mais sobre mim
