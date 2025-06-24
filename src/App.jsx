@@ -147,7 +147,7 @@ function App() {
                 novas tecnologias.{" "}
               </p>
               <a
-                href="/cv_pedro_silva.pdf"
+                href="/cv_pedro_silva.docx"
                 className="text-black rounded-lg px-2 lg:px-8 py-2 bg-white"
                 download
               >
