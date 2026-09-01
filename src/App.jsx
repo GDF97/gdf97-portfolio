@@ -1,18 +1,46 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Header from "./components/Header";
 import ProjectCard from "./components/ProjectCard";
 import { useEffect, useState } from "react";
 import SkillCard from "./components/SkillCard";
-import Loader from "./components/Loader";
-import restapicountries from "./assets/restapicountries.png";
+import blogbanner from "./assets/blogbanner.png";
 import vfv from "./assets/vfv.png";
 import signaux from "./assets/signaux.png";
 import frontendmentor from "./assets/frontendmentor.png";
+import About from "./components/About";
+import TypeWwriter from "./components/TypeWriter";
 
 function App() {
+  const [startHeaderTyping, setStartHeaderTyping] = useState(false);
+  const [firstHeaderFinished, setFirstHeaderFinished] = useState(false);
+  const [secondHeaderFinished, setSecondHeaderFinished] = useState(false);
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const liItemVariants = {
+    hidden: {
+      opacity: 0,
+      x: -20,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+  };
+
   const [projects, setProject] = useState([
     {
-      id: 1,
       name: "SignAux",
       s_description:
         "TCC - Uma aplicação que transcreve a Libras para texto em tempo real.",
@@ -31,7 +59,13 @@ function App() {
       url: "https://github.com/signaux-devs",
     },
     {
-      id: 2,
+      name: "Blog97 GDF",
+      s_description: "Blog pessoal inspirado no famoso site MySpace",
+      stack: ["HTML", "CSS", "PHP", "MYSQL"],
+      img: blogbanner,
+      url: "https://blog97gdf.com.br/",
+    },
+    {
       name: "VintageFilmVault",
       s_description: "Uma locadora de filmes antigos",
       stack: [
@@ -47,7 +81,6 @@ function App() {
       url: "https://github.com/GDF97/VintageFilmVault-frontend",
     },
     {
-      id: 3,
       name: "GoodMovies97",
       s_description:
         "Site no qual é possível realizar uma busca de informações de um determinado filme",
@@ -56,15 +89,6 @@ function App() {
       url: "https://github.com/GDF97/good-movie-97",
     },
     {
-      id: 4,
-      name: "Rest API Countries",
-      s_description: "Site que utiliza uma API que mostra os países do mundo",
-      stack: ["React", "TypeScript", "SCSS"],
-      img: restapicountries,
-      url: "https://rest-api-countries-iota.vercel.app/",
-    },
-    {
-      id: 5,
       name: "FrontEndMentor projects",
       s_description: "Site que mostra todos os meus projetos do FrontEndMentor",
       stack: ["React", "CSS"],
@@ -83,53 +107,49 @@ function App() {
   ]);
 
   const [hSkills, setHskills] = useState([
-    "HTML",
-    "CSS",
-    "SCSS",
-    "JavaScript",
     "TypeScript",
     "PHP",
-    "C#",
-    "Python",
     "TailwindCSS",
+    "Python",
     "ReactJS",
+    "Laravel",
     "NextJS",
-    "MySQL",
     "NodeJS",
     "ExpressJS",
-    "VSCode",
-    "Visual Studio",
-    "NeoVim",
+    "MySQL",
     "Git",
-    "GitHub",
     "Figma",
   ]);
 
-  const [loader, setLoader] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoader(false);
-    }, 8000);
-  }, []);
-
   return (
     <div className={`w-full relative `}>
-      {loader && <Loader />}
       <Header />
 
       <main className="w-full min-h-screen pt-4 px-4 lg:px-12 pb-24 flex flex-col gap-12 font-ibm relative 2xl:px-24 md:pb-48 ">
-        <section
+        <motion.section
           className="w-full min-h-[85vh] flex items-center justify-center flex-col text-center gap-4 relative"
           id="home"
+          onViewportEnter={() => setStartHeaderTyping(true)}
         >
           <h1 className="text-2xl sm:text-5xl text-white ibm-plex-sans-medium">
-            Desenvolvedor de Software
+            <TypeWwriter
+              text={"Desenvolvedor de Software"}
+              speed={15}
+              start={startHeaderTyping}
+              onComplete={() => setFirstHeaderFinished(true)}
+            />
           </h1>
           <p className="w-full text-sm xs:text-2xl text-white ibm-plex-sans-regular md:w-[500px]">
-            Criando soluções digitais completas com inovação e eficiência.
+            <TypeWwriter
+              text={
+                " Criando soluções digitais completas com inovação e eficiência."
+              }
+              speed={15}
+              start={firstHeaderFinished}
+              onComplete={() => setSecondHeaderFinished(true)}
+            />
           </p>
-        </section>
+        </motion.section>
         <section className="w-full flex flex-col gap-4" id="about">
           <div className="flex items-center gap-4">
             <div className="w-[12px] h-[12px] bg-white shadow-[0_0_4px_1px_#FFF] rounded-full"></div>
@@ -137,26 +157,8 @@ function App() {
               Sobre Mim{" "}
             </h1>
           </div>
-          <div className="w-full flex flex-col gap-2 text-white">
-            <div className="w-full md:w-fit flex flex-col gap-8 p-2 items-start border border-[#FFFFFF80] rounded-2xl bg-[#FFFFFF0D] md:p-4">
-              <p className="w-full text-base lg:w-[600px] xl:w-[800px] md:text-xl text-justify">
-                {" "}
-                Olá Mundo! Meu nome é Pedro Silva e sou estudante de
-                Desenvolvimento de Sistema na Etec de Peruibe. Sou bastante
-                apaixonado pelo mundo da programação e sempre busco aprender
-                novas tecnologias.{" "}
-              </p>
-              <a
-                href="/cv_pedro_silva.docx"
-                className="text-black rounded-lg px-2 lg:px-8 py-2 bg-white"
-                download
-              >
-                Baixar CV
-              </a>
-            </div>
-            {/* <Link to={"/about"} className="w-full lg:w-fit">
-              Ver mais sobre mim
-            </Link> */}
+          <div className="w-full min-h-[50vh] flex flex-col gap-2 text-white">
+            <About />
           </div>
         </section>
         <section className="w-full flex flex-col gap-4" id="projects">
@@ -180,18 +182,42 @@ function App() {
             </h1>
           </div>
           <div className="w-full flex flex-col items-center justify-center gap-8 text-white">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-3 gap-4"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+            >
               {hSkills.map((s, index) => (
                 <SkillCard skill={s} key={index} />
               ))}
-            </div>
+            </motion.div>
             <div className="w-full xl:w-[900px] flex flex-col gap-4 items-start border border-[#ffffff50] rounded-2xl bg-[#ffffff05] p-4">
               <h1 className="text-xl text-[#ffffff50]">SoftSkills</h1>
-              <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2">
+              <motion.ul
+                className="w-full grid grid-cols-1 md:grid-cols-2 gap-2"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                  once: true,
+                  amount: 0.2,
+                }}
+              >
                 {softSkills.map((s, index) => (
-                  <li key={index}>{s}</li>
+                  <motion.li
+                    key={index}
+                    className="ml-4 list-disc"
+                    variants={liItemVariants}
+                  >
+                    {s}
+                  </motion.li>
                 ))}
-              </div>
+              </motion.ul>
             </div>
           </div>
         </section>

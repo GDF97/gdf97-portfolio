@@ -1,13 +1,22 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+const MotionLink = motion(Link);
+
 function ProjectCard({ id, name, s_description, stack, img, url }) {
   return (
-    <Link
+    <MotionLink
       to={url}
       target="_blank"
       className="w-full p-2 h-[400px] overflow-hidden bg-[rgba(255,255,255,0.05)] rounded-3xl 
                  md:p-4 md:w-[700px] md:h-[600px] lg:p-4 lg:w-[1200px] lg:h-[800px]"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut",
+      }}
     >
       <div
         className="w-full h-full p-4 rounded-2xl border border-[#ffffff6e] relative 
@@ -38,7 +47,7 @@ function ProjectCard({ id, name, s_description, stack, img, url }) {
           id="projectimg"
         />
       </div>
-    </Link>
+    </MotionLink>
   );
 }
 
