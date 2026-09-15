@@ -6,6 +6,7 @@ import SkillCard from "./components/SkillCard";
 import blogbanner from "./assets/blogbanner.png";
 import vfv from "./assets/vfv.png";
 import signaux from "./assets/signaux.png";
+import ideal from "./assets/ideal.png";
 import frontendmentor from "./assets/frontendmentor.png";
 import About from "./components/About";
 import TypeWwriter from "./components/TypeWriter";
@@ -41,6 +42,21 @@ function App() {
 
   const [projects, setProject] = useState([
     {
+      name: "IDEAL MATERIAIS LP - Itariri",
+      s_description:
+        "Site institucional para uma loja de materiais de construção situada em itariri",
+      stack: ["React", "TypeScript", "Framer Motion"],
+      img: ideal,
+      url: "https://github.com/GDF97/ideal-landing-page",
+    },
+    {
+      name: "Blog97 GDF",
+      s_description: "Blog pessoal inspirado no famoso site MySpace",
+      stack: ["HTML", "CSS", "PHP", "MYSQL"],
+      img: blogbanner,
+      url: "https://blog97gdf.com.br/",
+    },
+    {
       name: "SignAux",
       s_description:
         "TCC - Uma aplicação que transcreve a Libras para texto em tempo real.",
@@ -59,13 +75,6 @@ function App() {
       url: "https://github.com/signaux-devs",
     },
     {
-      name: "Blog97 GDF",
-      s_description: "Blog pessoal inspirado no famoso site MySpace",
-      stack: ["HTML", "CSS", "PHP", "MYSQL"],
-      img: blogbanner,
-      url: "https://blog97gdf.com.br/",
-    },
-    {
       name: "VintageFilmVault",
       s_description: "Uma locadora de filmes antigos",
       stack: [
@@ -78,23 +87,23 @@ function App() {
         "MySQL",
       ],
       img: vfv,
-      url: "https://github.com/GDF97/VintageFilmVault-frontend",
+      url: "https://github.com/GDF97/VintageFilmVault-info",
     },
-    {
-      name: "GoodMovies97",
-      s_description:
-        "Site no qual é possível realizar uma busca de informações de um determinado filme",
-      stack: ["React", "TypeScript", "SCSS"],
-      img: "https://raw.githubusercontent.com/GDF97/good-movie-97/refs/heads/main/public/image.png",
-      url: "https://github.com/GDF97/good-movie-97",
-    },
-    {
-      name: "FrontEndMentor projects",
-      s_description: "Site que mostra todos os meus projetos do FrontEndMentor",
-      stack: ["React", "CSS"],
-      img: frontendmentor,
-      url: "https://front-end-mentor-display-projects.vercel.app/",
-    },
+    // {
+    //   name: "GoodMovies97",
+    //   s_description:
+    //     "Site no qual é possível realizar uma busca de informações de um determinado filme",
+    //   stack: ["React", "TypeScript", "SCSS"],
+    //   img: "https://raw.githubusercontent.com/GDF97/good-movie-97/refs/heads/main/public/image.png",
+    //   url: "https://github.com/GDF97/good-movie-97",
+    // },
+    // {
+    //   name: "FrontEndMentor projects",
+    //   s_description: "Site que mostra todos os meus projetos do FrontEndMentor",
+    //   stack: ["React", "CSS"],
+    //   img: frontendmentor,
+    //   url: "https://front-end-mentor-display-projects.vercel.app/",
+    // },
   ]);
 
   const [softSkills, setSoftSkills] = useState([
